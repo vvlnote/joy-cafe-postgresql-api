@@ -19,7 +19,10 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
+
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: joy-cafe-postgresql-api
+  password: password1
 
 development:
   <<: *default
@@ -30,9 +33,11 @@ development:
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
   #username: joy-cafe-postgresql-api
+  #username: postgres
+  #password: password1
 
   # The password associated with the postgres role (username).
-  #password:
+  #password: password1
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
