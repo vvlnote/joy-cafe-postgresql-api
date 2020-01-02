@@ -15,6 +15,10 @@ Things you may want to cover:
    - un-comment gem rack-cors in Gemfile to make corss-rogin AJAX possible.  
    - after the updates made above, need to run bundle install 
 
+   - add gem 'active_model_serializers' into Gemfile, and run bundle install
+
+   
+
 * Database creation
 
 * Database initialization
