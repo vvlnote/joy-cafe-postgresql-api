@@ -1,4 +1,5 @@
-class DishesController < ApplicationController
+# class DishesController < ApplicationController
+class DishesController < ApiController
   before_action :set_dish, only: [:show, :update, :destroy]
 
   # GET /dishes

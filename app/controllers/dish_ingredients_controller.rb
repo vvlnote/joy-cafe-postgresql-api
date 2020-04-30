@@ -1,4 +1,5 @@
-class DishIngredientsController < ApplicationController
+# class DishIngredientsController < ApplicationController
+class DishIngredientsController < ApiController
   before_action :set_dish
   # before_action :set_dish_ingredient, only: [:show, :update, :destroy]
 

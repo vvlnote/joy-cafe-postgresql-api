@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
 dishes = Dish.create([{name: 'Shredded Cabbage', price: 14.00, total_orders: 0}, 
 	{name: 'Organic Cauliflower', price: 18, total_orders: 0},
@@ -46,7 +46,7 @@ dishIngredients = DishIngredient.create([
 	{dish_id: 4, ingredient_id: 5, used_amount: 0.50},
 	{dish_id: 4, ingredient_id: 8, used_amount: 0.50},
 	{dish_id: 5, ingredient_id: 5, used_amount: 1.25},
-	{dish_id: 5, ingredient_id: 5, used_amount: 1.00},
+	{dish_id: 5, ingredient_id: 6, used_amount: 1.00},
 	{dish_id: 6, ingredient_id: 7, used_amount: 2.25},
 	{dish_id: 6, ingredient_id: 5, used_amount: 1.25},
 	{dish_id: 7, ingredient_id: 5, used_amount: 1.75},
