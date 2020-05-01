@@ -1,5 +1,6 @@
 
-const BASE_URL = "http://localhost:3002";
+// const BASE_URL = "http://localhost:3002";
+const BASE_URL = "";
 
 export function fetchDishes() {
 	return (dispatch) => {	
