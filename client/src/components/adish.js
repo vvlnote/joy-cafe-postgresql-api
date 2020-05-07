@@ -41,8 +41,8 @@ class ADish extends Component {
 
 		const style = {
 			image: {
-				width:"200pt",
-				height:"200pt",
+				width:"100pt",
+				height:"100pt",
 				float:'left',
 				border:"outset",
 				borderColor:"gray"
