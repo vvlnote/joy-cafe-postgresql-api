@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fetchIngredients } from '../actions/types';
 import { connect } from 'react-redux';
 import IngredientOrderForm from '../components/ingredientOrderForm';
+import { withRouter } from 'react-router-dom';
 
 class InventoryContainer extends Component {
 
@@ -18,7 +19,7 @@ class InventoryContainer extends Component {
 	inventoryTableHeader() {
 		let header = Object.keys(this.props.ingredients[0]);
 		return header.map((key, index) => {
-			return <th key={index}>{key.toUpperCase()}</th>
+			return <th key={index} style={this.tableHeaderStyle}>{key.toUpperCase()}</th>
 		})
 	}
 
@@ -34,20 +35,32 @@ class InventoryContainer extends Component {
 		this.setState({showForm: false});
 	}
 
+tableCellStyle = {
+	border:'2px solid #ddd'
+}
+tableHeaderStyle = {
+	textAlign: 'Center',
+	backgroundColor: "#4CAF50",
+	border: '2px solid #ddd',
+	color: "white"
+}
+
+
 	inventoryTableData() {
 		return this.props.ingredients.map((ingredient, i) => {
-			let backgroudColor = (ingredient.alert ? 'red': '#CCFCFD');
+			let backgroundColor = (i % 2 === 0? 'white': 'lightgrey');
+			backgroundColor = (ingredient.alert ? 'red': backgroundColor);
 			return (
 
-				<tr key={i} style={{textAlign:'center', backgroundColor:`${backgroudColor}`}}>
-					<td>{ingredient.id}</td>
-					<td>{ingredient.name}</td>
-					<td>{ingredient.alert === true ? 'true': 'false'}</td>
-					<td>{ingredient.available_amount}</td>
-					<td>{ingredient.low_amount_alert}</td>
-					<td>${ingredient.unit_cost}</td>
-					<td>{ingredient.used_amount}</td>
-					<td><button id={ingredient.id} onClick={(event) => this.handleOnClick(ingredient, event)}>Order</button></td>
+				<tr  key={i} style={{textAlign:'center', backgroundColor:`${backgroundColor}`}}>
+					<td style={this.tableCellStyle}>{ingredient.id}</td>
+					<td style={this.tableCellStyle}>{ingredient.name}</td>
+					<td style={this.tableCellStyle}>{ingredient.alert === true ? 'true': 'false'}</td>
+					<td style={this.tableCellStyle}>{ingredient.available_amount}</td>
+					<td style={this.tableCellStyle}>{ingredient.low_amount_alert}</td>
+					<td style={this.tableCellStyle}>${ingredient.unit_cost}</td>
+					<td style={this.tableCellStyle}>{ingredient.used_amount}</td>
+					<td style={this.tableCellStyle}><button id={ingredient.id} onClick={(event) => this.handleOnClick(ingredient, event)}>Order</button></td>
 				</tr>
 
 			)
@@ -55,6 +68,8 @@ class InventoryContainer extends Component {
 	}
 
 	render() {
+
+	
 	    return (
 	      <div>
 	      	{console.log(this.state.showForm)}
@@ -62,7 +77,7 @@ class InventoryContainer extends Component {
 	       	<h2 id='title'>Current Inventory</h2>
 	       	<table id='ingredients'>
 	       		<tbody>
-	       			<tr>{this.inventoryTableHeader()}</tr>
+	       			<tr style={this.tableCellStyle}>{this.inventoryTableHeader()}</tr>
 	       			{this.inventoryTableData()}
 	       		</tbody>
 	       	</table>
